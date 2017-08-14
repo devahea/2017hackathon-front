@@ -18,6 +18,8 @@ export class FieldInputWrapperComponent implements OnInit {
   form: FormGroup;
   exportTypes = ['json', 'xml', 'sql'];
 
+  result: object;
+
   constructor(private http: HttpClient,
               private fb: FormBuilder) {
     this.createForm();
@@ -118,18 +120,27 @@ export class FieldInputWrapperComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit(submitObj){
 
     this.form.value['fieldCategoryList'] = this.getFields();
 
     console.log('this.form.value ... ', this.form.value);
+    console.log(JSON.stringify(this.form.value));
 
-/*
+    submitObj = {
+      "dataLength": 100,
+      "exportType": "json",
+      "fields": [{"fieldName": "", "fieldType": ""}],
+      "fieldCategoryList": [{"fieldName": "233", "categoryType": "Repo","dataType":"1"}]
+    };
 
-    this.http.post('http://localhost:8080/search', this.form.value).subscribe(data => {
+
+
+    this.http.post('http://localhost:8080/search', submitObj).subscribe(data => {
       console.log(data);
+      this.result = data;
     });
-*/
+
 
   }
 }
