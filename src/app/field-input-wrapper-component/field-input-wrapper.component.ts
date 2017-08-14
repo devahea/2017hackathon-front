@@ -52,6 +52,7 @@ export class FieldInputWrapperComponent implements OnInit {
       var categoryType = null;
       var dataType = null;
       var regularExpression = null;
+      var conditions = null;
 
       if(name =="" || typeof name == "undefined"|| type == "" || typeof type == "undefined"){
         alert("빈칸을 채워주세요.");
@@ -70,6 +71,7 @@ export class FieldInputWrapperComponent implements OnInit {
         categoryType = "select";
         dataType = "string";
         regularExpression = "";
+        conditions = ["남자", "여자"];
       }else if(type == "phone"){
         categoryType = "Random";
         dataType = "";
@@ -85,7 +87,7 @@ export class FieldInputWrapperComponent implements OnInit {
       }
 
 
-      var json = {fieldName:name, categoryType: categoryType, dataType: dataType, regularExpression : regularExpression };
+      var json = {fieldName:name, categoryType: categoryType, dataType: dataType, regularExpression : regularExpression, conditions: conditions };
 
 
       ary.push(json);
