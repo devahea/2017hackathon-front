@@ -1,4 +1,6 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-field-input-wrapper-component',
@@ -9,8 +11,13 @@ export class FieldInputWrapperComponent implements OnInit {
 
   rows: Array<number> = [0];
   rowId: number = 1;
+  form: FormGroup;
+  categoryTypes = ['json', 'xml', 'sql'];
 
-  constructor() { }
+  constructor(private http: HttpClient,
+              private fb: FormBuilder) {
+    this.createForm();
+  }
 
   ngOnInit() {
   }
@@ -28,5 +35,23 @@ export class FieldInputWrapperComponent implements OnInit {
     let rowIndex = this.rows.indexOf(rowId);
     this.rows.splice(rowIndex, 1);
 
+  }
+
+
+  createForm() {
+    this.form = this.fb.group({
+      rowNum: 100,
+      categoryType: '',
+      fields: this.fb.array([{fieldName: '', fieldType: ''}])
+    });
+  }
+
+  submitData() {
+    console.log(this);
+  }
+
+  onSubmit(event){
+    console.log('this.form.value ... ', this.form.value.rowNum, this.form.value.categoryTypes);
+    console.log('this.form.get ... ', this.form.get('rowNum').value, this.form.get('categoryTypes').value);
   }
 }

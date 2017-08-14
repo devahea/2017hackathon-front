@@ -5,7 +5,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { SetOptionComponentComponent } from './set-option-component/set-option-component.component';
 import { FieldInputComponent } from './field-input-component/field-input.component';
 import { FieldInputWrapperComponent } from './field-input-wrapper-component/field-input-wrapper.component';
 
@@ -17,7 +16,6 @@ import { ModalViewComponentComponent } from './modal-view-component/modal-view-c
 @NgModule({
   declarations: [
     AppComponent,
-    SetOptionComponentComponent,
     FieldInputComponent,
     FieldInputWrapperComponent,
     ModalViewComponentComponent
