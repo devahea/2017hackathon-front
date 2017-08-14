@@ -49,13 +49,45 @@ export class FieldInputWrapperComponent implements OnInit {
       var data = this.fields["_results"][i];
       var name = data.name;
       var type = data.type;
+      var categoryType = null;
+      var dataType = null;
+      var regularExpression = null;
 
-      if(name =="" || type == "" ){
+      if(name =="" || typeof name == "undefined"|| type == "" || typeof type == "undefined"){
         alert("빈칸을 채워주세요.");
         return;
       }
 
-      var json = {name:name, type: type };
+      if(type == "name"){
+        categoryType = "Repo";
+        dataType = "1";
+        regularExpression = "";
+      }else if(type == "date"){
+        categoryType = "Date";
+        dataType = "string";
+        regularExpression = "yyyy-mm-dd HH:mm:ss";
+      }else if(type == "gender"){
+        categoryType = "select";
+        dataType = "string";
+        regularExpression = "";
+      }else if(type == "phone"){
+        categoryType = "Random";
+        dataType = "";
+        regularExpression = "(01[01]{1})-([0-9]{4})-([0-9]{4})";
+      }else if(type == "addr"){
+        categoryType = "Repo";
+        dataType = "2";
+        regularExpression = "";
+      }else if(type == "personNumber"){
+        categoryType = "Random";
+        dataType = "";
+        regularExpression = "([0-9]{6})-([0-9]{7})";
+      }
+
+
+      var json = {fieldName:name, categoryType: categoryType, dataType: dataType, regularExpression : regularExpression };
+
+
       ary.push(json);
     }
 

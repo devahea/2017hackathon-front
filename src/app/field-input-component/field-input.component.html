@@ -3,8 +3,9 @@
   <select [(ngModel)]="type" name="field-type" class="form-control col"  value="name">
     <option value="name">이름</option>
     <option value="gender">성별</option>
-    <option value="age">나이</option>
     <option value="addr">주소</option>
+    <option value="date">날짜</option>
+    <option value="phone">핸드폰</option>
     <option value="personNumber">주민등록번호</option>
   </select>
   <a class="close" href="javascript:void(0)" (click)="this.wrapper.removeFieldInput(this.rowId)">×</a>
