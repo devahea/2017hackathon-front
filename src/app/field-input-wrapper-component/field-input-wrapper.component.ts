@@ -29,7 +29,7 @@ export class FieldInputWrapperComponent implements OnInit {
   getFields(){
     var ary = [];
 
-    this.fields["_results"].forEach(data => {
+    /*this.fields["_results"].forEach(data => {
       var name = data.name;
       var type = data.type;
 
@@ -41,7 +41,22 @@ export class FieldInputWrapperComponent implements OnInit {
       var json = {name:name, type: type };
       ary.push(json);
 
-    });
+    });*/
+
+    for(var i = 0; i<this.fields["_results"].length;i++){
+      var data = this.fields["_results"][i];
+      var name = data.name;
+      var type = data.type;
+
+      if(name =="" || type == ""){
+        alert("빈칸을 채워주세요.");
+        return;
+      }
+
+      var json = {name:name, type: type };
+      ary.push(json);
+    }
+
     console.log(ary);
 
     return ary;
