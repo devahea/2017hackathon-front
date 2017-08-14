@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FieldInputWrapperComponent} from "../field-input-wrapper-component/field-input-wrapper.component";
 import {wrappedError} from "@angular/core/src/error_handler";
 import {Field} from "./field";
@@ -12,10 +12,17 @@ export class FieldInputComponent implements OnInit {
 
   @Input('wrapper') wrapper: FieldInputWrapperComponent;
   @Input('rowId') rowId: number;
+  @Output() formUpdated = new EventEmitter();
 
-  constructor() { }
+
+  constructor() {
+    this.formUpdated.emit(this.wrapper);
+    this.formUpdated.emit(this.rowId);
+  }
 
   ngOnInit() {
   }
+
+
 
 }

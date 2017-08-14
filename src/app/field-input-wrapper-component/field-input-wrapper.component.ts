@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 
@@ -50,8 +50,14 @@ export class FieldInputWrapperComponent implements OnInit {
     console.log(this);
   }
 
-  onSubmit(event){
-    console.log('this.form.value ... ', this.form.value.rowNum, this.form.value.categoryTypes);
-    console.log('this.form.get ... ', this.form.get('rowNum').value, this.form.get('categoryTypes').value);
+  handleFormUpdated(data) {
+    // Handle the event
+    console.dir(data);
+    console.log(data);
+  }
+
+  onSubmit(){
+    console.log('this.form.value ... ', this.form.value.rowNum, this.form.value.categoryType);
+    console.log('this.form.get ... ', this.form.get('rowNum').value, this.form.get('categoryType').value);
   }
 }
