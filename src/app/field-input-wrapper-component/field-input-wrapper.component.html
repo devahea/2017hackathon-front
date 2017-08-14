@@ -3,7 +3,7 @@
     <div class="col">Field Name</div>
     <div class="col">Type</div>
   </div>
-  <ng-container *ngFor="let rowId of rows; let i = index;">
+  <ng-container #f *ngFor="let rowId of rows; let i = index;">
     <app-field-input-component [wrapper]="this" [rowId]="rowId"></app-field-input-component>
   </ng-container>
   <button #btnAdd class="btn btn-primary" (click)="createFieldInput()">Add another field</button>
