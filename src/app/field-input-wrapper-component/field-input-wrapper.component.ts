@@ -16,7 +16,7 @@ export class FieldInputWrapperComponent implements OnInit {
   rowId: number = 1;
 
   form: FormGroup;
-  exportTypes = ['json', 'xml', 'sql'];
+  categoryTypes = ['json', 'xml', 'sql'];
 
   constructor(private http: HttpClient,
               private fb: FormBuilder) {
@@ -48,7 +48,7 @@ export class FieldInputWrapperComponent implements OnInit {
       var name = data.name;
       var type = data.type;
 
-      if(name =="" || type == "" ){
+      if(name =="" || typeof name == "undefined"|| type == "" || typeof type == "undefined"){
         alert("빈칸을 채워주세요.");
         return;
       }
@@ -80,8 +80,8 @@ export class FieldInputWrapperComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-      dataLength: 100,
-      exportType: 'json',
+      rowNum: 100,
+      categoryType: '',
       fields: this.fb.array([{fieldName: '', fieldType: ''}])
     });
   }
@@ -91,14 +91,7 @@ export class FieldInputWrapperComponent implements OnInit {
   }
 
   onSubmit(event){
-
-    this.form.value['fieldCategoryList'] = this.getFields();
-
-    console.log('this.form.value ... ', this.form.value);
-
-
-    this.http.post('http://localhost:8080/search', this.form.value).subscribe(data => {
-      console.log(data);
-    });
+    console.log('this.form.value ... ', this.form.value.rowNum, this.form.value.categoryTypes);
+    console.log('this.form.get ... ', this.form.get('rowNum').value, this.form.get('categoryTypes').value);
   }
 }
