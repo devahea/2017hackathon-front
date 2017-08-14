@@ -9,18 +9,25 @@ import { SetOptionComponentComponent } from './set-option-component/set-option-c
 import { FieldInputComponent } from './field-input-component/field-input.component';
 import { FieldInputWrapperComponent } from './field-input-wrapper-component/field-input-wrapper.component';
 
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+import { ModalViewComponentComponent } from './modal-view-component/modal-view-component.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     SetOptionComponentComponent,
     FieldInputComponent,
-    FieldInputWrapperComponent
+    FieldInputWrapperComponent,
+    ModalViewComponentComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2Bs3ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
