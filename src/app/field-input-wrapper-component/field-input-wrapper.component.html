@@ -1,0 +1,10 @@
+<div class="fields-wrapper">
+  <div class="row">
+    <div class="col">Field Name</div>
+    <div class="col">Type</div>
+  </div>
+  <ng-container *ngFor="let rowId of rows;">
+    <app-field-input-component [wrapper]="this" [rowId]="rowId"></app-field-input-component>
+  </ng-container>
+  <button #btnAdd class="btn btn-primary" (click)="createFieldInput()">Add another field</button>
+</div>
