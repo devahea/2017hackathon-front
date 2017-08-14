@@ -1,3 +1,18 @@
 .fields-column{
   padding: 15px;
 }
+
+.fields{
+  margin: 0px;
+  padding-bottom: 10px;
+}
+
+.close{
+  position: relative;
+  left: 5px;
+  top: 4px;
+}
+
+.field-name{
+  margin-right: 10px;
+}

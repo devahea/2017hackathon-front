@@ -1,6 +1,7 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {FieldInputWrapperComponent} from "../field-input-wrapper-component/field-input-wrapper.component";
 import {wrappedError} from "@angular/core/src/error_handler";
+import {Field} from "./field";
 
 @Component({
   selector: 'app-field-input-component',

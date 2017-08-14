@@ -1,11 +1,11 @@
 <div class="fields row form-group">
-  <input type="text" class="form-control col">
-  <select class="form-control col">
-    <option>이름</option>
-    <option>성별</option>
-    <option>나이</option>
-    <option>주소</option>
-    <option>주민등록번호</option>
+  <input name="field-name" type="text" class="form-control col field-name" placeholder="enter...">
+  <select name="field-type" class="form-control col">
+    <option value="name">이름</option>
+    <option value="gender">성별</option>
+    <option value="age">나이</option>
+    <option value="addr">주소</option>
+    <option value="personNumber">주민등록번호</option>
   </select>
   <a class="close" href="javascript:void(0)" (click)="this.wrapper.removeFieldInput(this.rowId)">×</a>
 </div>

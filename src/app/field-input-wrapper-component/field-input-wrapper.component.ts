@@ -7,8 +7,8 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 })
 export class FieldInputWrapperComponent implements OnInit {
 
-  rows: Array<number> = [0, 1, 2 ,3 ,4];
-  rowId: number = 5;
+  rows: Array<number> = [0];
+  rowId: number = 1;
 
   constructor() { }
 
@@ -21,10 +21,12 @@ export class FieldInputWrapperComponent implements OnInit {
 
   removeFieldInput(rowId){
     if(this.rows.length == 1){
+      alert("더 이상 삭제할 수 없습니다.");
       return;
     }
 
-    let index = this.rows.indexOf(rowId);
-    this.rows.splice(index, 1);
+    let rowIndex = this.rows.indexOf(rowId);
+    this.rows.splice(rowIndex, 1);
+
   }
 }

@@ -1,3 +1,11 @@
 .fields-wrapper{
   width: 50%;
 }
+
+.fields-wrapper>.row .col:nth-child(1){
+  padding-right: 0px;
+}
+
+.fields-wrapper>.row .col:nth-child(2){
+  padding-left: 0px;
+}
