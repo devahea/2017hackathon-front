@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,12 +10,15 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 export class ModalViewComponentComponent {
   closeResult: string;
+  @Input("result") result: object;
+  @ViewChild('content') content:ElementRef;
 
   constructor(private modalService: NgbModal) {}
 
-  open(content) {
-    this.modalService.open(content).result.then((result) => {
+  open() {
+    this.modalService.open(this.content).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
+      console.dir(this.content)
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });

@@ -16,9 +16,9 @@ export class FieldInputWrapperComponent implements OnInit {
   rowId: number = 1;
 
   form: FormGroup;
-  exportTypes = ['json', 'xml', 'sql'];
+  exportTypes = ['Json', 'Xml', 'Query'];
 
-  result: object;
+  result: string;
 
   constructor(private http: HttpClient,
               private fb: FormBuilder) {
@@ -66,9 +66,9 @@ export class FieldInputWrapperComponent implements OnInit {
       }else if(type == "date"){
         categoryType = "Date";
         dataType = "string";
-        regularExpression = "yyyy-mm-dd HH:mm:ss";
+        regularExpression = "yyyy-MM-dd HH:mm:ss";
       }else if(type == "gender"){
-        categoryType = "select";
+        categoryType = "Select";
         dataType = "string";
         regularExpression = "";
         conditions = ["남자", "여자"];
@@ -117,7 +117,7 @@ export class FieldInputWrapperComponent implements OnInit {
   createForm() {
     this.form = this.fb.group({
       dataLength: 100,
-      exportType: 'json',
+      exportType: 'Json',
       fields: this.fb.array([{fieldName: '', fieldType: ''}])
     });
   }
@@ -126,8 +126,10 @@ export class FieldInputWrapperComponent implements OnInit {
     this.form.value['fieldCategoryList'] = this.getFields();
     console.log('this.form.value ... ', this.form.value);
 
-    this.http.post('http://localhost:8080/search', this.form.value).subscribe(data => {
+    this.http.post('http://localhost:8080/search', this.form.value,{responseType: "text"}).subscribe(data => {
       this.result = data;
+      console.dir(data)
+
     });
   }
 }
