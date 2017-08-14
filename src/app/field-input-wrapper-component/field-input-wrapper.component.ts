@@ -86,19 +86,18 @@ export class FieldInputWrapperComponent implements OnInit {
     });
   }
 
-  submitData() {
-    console.log(this);
-  }
-
-  onSubmit(event){
+  onSubmit(){
 
     this.form.value['fieldCategoryList'] = this.getFields();
 
     console.log('this.form.value ... ', this.form.value);
 
+/*
 
     this.http.post('http://localhost:8080/search', this.form.value).subscribe(data => {
       console.log(data);
     });
+*/
+
   }
 }
