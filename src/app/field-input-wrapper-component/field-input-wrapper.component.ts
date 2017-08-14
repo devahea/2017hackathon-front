@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 
@@ -9,8 +9,12 @@ import {HttpClient} from '@angular/common/http';
 })
 export class FieldInputWrapperComponent implements OnInit {
 
+  @ViewChildren('fields')
+  fields: QueryList<ElementRef>;
+
   rows: Array<number> = [0];
   rowId: number = 1;
+
   form: FormGroup;
   categoryTypes = ['json', 'xml', 'sql'];
 
@@ -20,6 +24,27 @@ export class FieldInputWrapperComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  getFields(){
+    var ary = [];
+
+    this.fields["_results"].forEach(data => {
+      var name = data.name;
+      var type = data.type;
+
+      if(name =="" || type == ""){
+        alert("빈칸을 채워주세요.");
+        return;
+      }
+
+      var json = {name:name, type: type };
+      ary.push(json);
+
+    });
+    console.log(ary);
+
+    return ary;
   }
 
   createFieldInput(){

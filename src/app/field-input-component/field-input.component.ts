@@ -13,9 +13,14 @@ export class FieldInputComponent implements OnInit {
   @Input('wrapper') wrapper: FieldInputWrapperComponent;
   @Input('rowId') rowId: number;
 
+  @Input('name') name: string;
+  @Input('type') type: string;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  test(){alert("test");}
 
 }

@@ -1,14 +1,18 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+
+
   <div class="fields-wrapper">
     <div class="row">
       <div class="col">Field Name</div>
       <div class="col">Type</div>
     </div>
-    <ng-container #f *ngFor="let rowId of rows; let i = index;">
-      <app-field-input-component [wrapper]="this" [rowId]="rowId"></app-field-input-component>
+    <ng-container *ngFor="let rowId of rows; let i = index;">
+      <app-field-input-component #fields [wrapper]="this" [rowId]="rowId" [name]="" [type]="'name'" ></app-field-input-component>
     </ng-container>
     <button #btnAdd class="btn btn-primary" (click)="createFieldInput()">Add another field</button>
   </div>
+
+
   <div class="form-group">
     rows:
     <input class="form-control" type="number" formControlName="rowNum" placeholder="출력수를 입력"/>

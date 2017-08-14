@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FieldInputComponent } from './field-input-component/field-input.component';
 import { FieldInputWrapperComponent } from './field-input-wrapper-component/field-input-wrapper.component';
@@ -25,7 +25,8 @@ import { ModalViewComponentComponent } from './modal-view-component/modal-view-c
     NgbModule.forRoot(),
     HttpClientModule,
     ReactiveFormsModule,
-    Ng2Bs3ModalModule
+    Ng2Bs3ModalModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
