@@ -9,7 +9,7 @@ import { FieldInputComponentComponent } from './field-input-component/field-inpu
 @NgModule({
   declarations: [
     AppComponent,
-    SetOptionComponentComponent
+    SetOptionComponentComponent,
     AppComponent,
     FieldInputComponentComponent
   ],
