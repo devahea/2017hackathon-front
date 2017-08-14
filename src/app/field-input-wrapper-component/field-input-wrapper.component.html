@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+<form [formGroup]="form" novalidate>
 
 
   <div class="fields-wrapper">
@@ -24,9 +24,8 @@
 
   <hr>
   <div class="form-group">
-    <button class="btn btn-primary" (click)="submitData()">Download</button>
+    <button class="btn btn-primary" (click)="onSubmit()">Download</button>
     <button class="btn btn-primary">Preview</button>
-    <button (click)="onSubmit($event)" *ngIf="!form.valid" class="btn btn-primary">서브밋버튼</button>
   </div>
 </form>
 <p>Form value: {{ form.value | json }}</p>
