@@ -16,9 +16,9 @@
 
   <div class="form-group">
     rows:
-    <input class="form-control" type="number" formControlName="rowNum" placeholder="출력수를 입력"/>
-    exportType: <select class="form-control" formControlName="categoryType">
-    <option *ngFor="let categoryType of categoryTypes" [value]="categoryType">{{categoryType}}</option>
+    <input class="form-control" type="number" formControlName="dataLength" placeholder="출력수를 입력"/>
+    exportType: <select class="form-control" formControlName="exportType">
+    <option *ngFor="let exportType of exportTypes" [value]="exportType">{{exportType}}</option>
   </select>
   </div>
 
